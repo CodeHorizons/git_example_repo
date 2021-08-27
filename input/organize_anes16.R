@@ -153,4 +153,4 @@ politics <- complete(mice(politics, 1))
 politics <- as_tibble(politics)
 
 #save the new data
-save(politics, file=here("input","politics.RData"))
+save(politics, file=here("output","politics.RData"))
