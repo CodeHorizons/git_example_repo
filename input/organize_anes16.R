@@ -1,7 +1,5 @@
-library(haven)
-library(mice)
-library(tibble)
 library(here)
+source(here("check_packages.R"))
 
 #read in raw data
 politics <- read_dta(here("input","anes_timeseries_2016_dta",
@@ -47,7 +45,7 @@ table(politics$V161310x, politics$race, exclude=NULL)
 politics$gender <- factor(ifelse(politics$V161342<0, NA,
                                  ifelse(politics$V161342==1,"Male",
                                         ifelse(politics$V161342==2,"Female","Other"))),
-                          levels=c("Other","Male","Female"))
+                          levels=c("Male","Female","Other"))
 table(politics$V161342, politics$gender, exclude=NULL)
 
 ## Religion - this one is complicated. Need to combine non-exclusive self-identity
